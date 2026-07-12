@@ -49,7 +49,7 @@ export default function LoginPage() {
     setEmail('demo@gadgetverse.com');
     setPassword('demo123');
   };
-
+//function
   return (
     <div className="min-h-[calc(100vh-80px)] flex items-center justify-center bg-neutral py-12 px-4">
       <div className="w-full max-w-md bg-white rounded-card shadow-lg p-8 space-y-6">
