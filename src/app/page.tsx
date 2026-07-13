@@ -117,6 +117,7 @@ export default function Home() {
                     src={cat.img}
                     alt={cat.name}
                     fill
+                    sizes="(max-width: 768px) 50vw, 25vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
