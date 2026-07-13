@@ -21,6 +21,10 @@ export default function Home() {
       })
       .catch((error) => {
         console.error('Failed to fetch gadgets:', error);
+         // 401 error হলে
+      if (error.response?.status === 401) {
+        console.error('Authentication required! Check if route is protected.');
+      }
         setGadgets([]);
         setLoading(false);
       });
