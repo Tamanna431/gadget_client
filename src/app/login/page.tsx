@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { signIn } from '../../lib/auth-client';
+import { signIn, signUp } from '../../lib/auth-client';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -18,7 +18,22 @@ export default function LoginPage() {
     setError('');
 
     try {
-      const { data, error } = await signIn.email({ email, password });
+      let { data, error } = await signIn.email({ email, password });
+      
+      // Auto-register demo account if it doesn't exist
+      if (error && email === 'demo@gadgetverse.com' && password === 'demo123') {
+        const { error: signUpError } = await signUp.email({
+          email: 'demo@gadgetverse.com',
+          password: 'demo123',
+          name: 'Demo User',
+        });
+        
+        if (!signUpError) {
+          const retry = await signIn.email({ email, password });
+          data = retry.data;
+          error = retry.error;
+        }
+      }
       
       if (error) {
         setError(error.message || 'Login failed');
