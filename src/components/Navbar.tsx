@@ -63,7 +63,7 @@ export default function Navbar() {
             {user ? (
               <button
                 onClick={logout}
-                className="px-4 py-2 text-sm font-medium text-blue-200 bg-primary rounded-lg hover:bg-blue-800 transition flex items-center gap-2"
+                className="px-4 py-2 text-sm font-medium text-black bg-primary rounded-lg hover:bg-blue-800 transition flex items-center gap-2"
               >
                 <LogIn size={16} />
                 Logout
@@ -125,7 +125,7 @@ export default function Navbar() {
                     logout();
                     setIsOpen(false);
                   }}
-                  className="w-full px-4 py-2 text-center text-sm font-medium text-white bg-primary rounded-lg flex items-center justify-center gap-2"
+                  className="w-full px-4 py-2 text-center text-sm font-medium text-black bg-primary rounded-lg flex items-center justify-center gap-2"
                 >
                   <LogIn size={16} />
                   Logout

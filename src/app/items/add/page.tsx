@@ -195,11 +195,12 @@ export default function AddItemPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary-800 transition flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-3 bg-primary text-black rounded-lg font-medium hover:bg-blue-200 transition flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? (
               <>
-                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                <div className="w-5 h-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin bg-blue-400
+                text-black" />
                 Adding...
               </>
             ) : (
