@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api',
+  baseURL: process.env.NEXT_PUBLIC_API_URL || 'https://gadget-server-sandy.vercel.app/api',
   withCredentials: true, // ✅ সবচেয়ে জরুরি: এটি ব্রাউজারের BetterAuth Cookie অটোমেটিক ব্যাকএন্ডে পাঠায়
   headers: {
     'Content-Type': 'application/json',
