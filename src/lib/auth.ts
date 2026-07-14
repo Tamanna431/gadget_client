@@ -16,6 +16,10 @@ export const auth = betterAuth({
   database: mongodbAdapter(db),
   secret: process.env.BETTER_AUTH_SECRET,
   baseURL: getBaseURL(),
+  trustedOrigins: [
+    "https://gadget-client-chi.vercel.app",
+    "http://localhost:3000",
+  ],
   
   // Email/Password Login
   emailAndPassword: {
