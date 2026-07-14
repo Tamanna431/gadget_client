@@ -12,14 +12,6 @@ const nextConfig = {
       },
     ],
   },
-  async rewrites() {
-    return [
-      {
-        source: '/api/backend/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API_URL || 'https://gadget-server-sandy.vercel.app/api'}/:path*`,
-      },
-    ];
-  },
 };
 
 module.exports = nextConfig;

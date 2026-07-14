@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '/api/backend',
+  baseURL: '/api/proxy',
   withCredentials: true, // ✅ সবচেয়ে জরুরি: এটি ব্রাউজারের BetterAuth Cookie অটোমেটিক ব্যাকএন্ডে পাঠায়
   headers: {
     'Content-Type': 'application/json',
