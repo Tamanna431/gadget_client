@@ -8,14 +8,14 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#6366F1',
-          50: '#EEF2FF',
-          100: '#E0E7FF',
-          500: '#6366F1',
-          600: '#4F46E5',
-          700: '#4338CA',
-          800: '#3730A3',
-          900: '#312E81',
+          DEFAULT: '#7C3AED',
+          50: '#F5F3FF',
+          100: '#EDE9FE',
+          500: '#8B5CF6',
+          600: '#7C3AED',
+          700: '#6D28D9',
+          800: '#5B21B6',
+          900: '#4C1D95',
         },
         secondary: {
           DEFAULT: '#10B981',

@@ -61,9 +61,9 @@ export default function Home() {
   ];
 
   const categoryData = [
-    { name: 'Smartwatch', value: 30, color: '#6366F1' },
-    { name: 'Headphones', value: 25, color: '#10B981' },
-    { name: 'Laptop', value: 20, color: '#8B5CF6' },
+    { name: 'Smartwatch', value: 30, color: '#7C3AED' },
+    { name: 'Headphones', value: 25, color: '#06B6D4' },
+    { name: 'Laptop', value: 20, color: '#EC4899' },
     { name: 'Smartphone', value: 25, color: '#F59E0B' },
   ];
 
@@ -77,15 +77,15 @@ export default function Home() {
   return (
     <div>
       {/* HERO - 65vh */}
-      <section className="h-[65vh] relative flex items-center bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-950 text-white overflow-hidden">
+      <section className="h-[65vh] relative flex items-center bg-gradient-to-br from-slate-900 via-purple-950 to-slate-950 text-white overflow-hidden">
         {/* Subtle decorative background glow */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-fuchsia-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center relative z-10">
           <div className="space-y-6">
             <h1 className="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight text-white">
-              Discover Premium <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400">Smart Gadgets</span>
+              Discover Premium <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-fuchsia-400">Smart Gadgets</span>
             </h1>
             <p className="text-lg text-slate-300 font-medium max-w-lg leading-relaxed">
               Explore the latest technology and elevate your lifestyle with our curated collection of premium electronics.
@@ -186,7 +186,7 @@ export default function Home() {
               gadgets.map((g) => <GadgetCard key={g._id} gadget={g} />)
             ) : (
               <div className="col-span-full text-center py-12">
-                <p className="text-blue-800 text-lg">No gadgets available at the moment.</p>
+                <p className="text-primary text-lg font-semibold">No gadgets available at the moment.</p>
               </div>
             )}
           </div>
@@ -236,7 +236,7 @@ export default function Home() {
                   <Line
                     type="monotone"
                     dataKey="sales"
-                    stroke="#6366F1"
+                    stroke="#7C3AED"
                     strokeWidth={3}
                     name="Sales ($)"
                     activeDot={{ r: 8 }}
@@ -244,7 +244,7 @@ export default function Home() {
                   <Line
                     type="monotone"
                     dataKey="orders"
-                    stroke="#10B981"
+                    stroke="#06B6D4"
                     strokeWidth={3}
                     name="Orders"
                   />
@@ -307,13 +307,13 @@ export default function Home() {
                 <Legend />
                 <Bar
                   dataKey="sales"
-                  fill="#6366F1"
+                  fill="#7C3AED"
                   radius={[8, 8, 0, 0]}
                   name="Sales ($)"
                 />
                 <Bar
                   dataKey="orders"
-                  fill="#10B981"
+                  fill="#06B6D4"
                   radius={[8, 8, 0, 0]}
                   name="Orders"
                 />
