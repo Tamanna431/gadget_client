@@ -77,17 +77,17 @@ export default function Home() {
   return (
     <div>
       {/* HERO - 65vh */}
-      <section className="h-[65vh] relative flex items-center bg-gradient-to-br from-slate-900 via-purple-950 to-slate-950 text-white overflow-hidden">
+      <section className="h-[65vh] relative flex items-center bg-gradient-to-br from-purple-50 via-blue-50 to-white text-slate-900 overflow-hidden border-b border-slate-100">
         {/* Subtle decorative background glow */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-fuchsia-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center relative z-10">
           <div className="space-y-6">
-            <h1 className="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight text-white">
-              Discover Premium <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-fuchsia-400">Smart Gadgets</span>
+            <h1 className="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight text-slate-900">
+              Discover Premium <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Smart Gadgets</span>
             </h1>
-            <p className="text-lg text-slate-300 font-medium max-w-lg leading-relaxed">
+            <p className="text-lg text-slate-600 font-medium max-w-lg leading-relaxed">
               Explore the latest technology and elevate your lifestyle with our curated collection of premium electronics.
             </p>
             <div className="flex gap-4 pt-2">
@@ -99,7 +99,7 @@ export default function Home() {
               </Link>
               <Link
                 href="/about"
-                className="px-6 py-3 border border-white/20 text-white rounded-lg font-semibold hover:bg-white/10 transition"
+                className="px-6 py-3 border border-slate-200 text-slate-600 rounded-lg font-semibold hover:bg-slate-50 transition"
               >
                 Learn More
               </Link>
@@ -111,7 +111,7 @@ export default function Home() {
               alt="Hero"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="rounded-card shadow-2xl object-cover border border-white/10"
+              className="rounded-card shadow-lg object-cover border border-slate-100"
               priority
             />
           </div>
@@ -119,21 +119,21 @@ export default function Home() {
       </section>
 
       {/* Section 1: Features */}
-      <section className="py-16 bg-gray-100">
+      <section className="py-16 bg-slate-50/50">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-slate-800">Why Choose Us</h2>
+          <h2 className="text-3xl font-extrabold text-center mb-12 text-slate-900 tracking-tight">Why Choose Us</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { icon: Truck, title: 'Fast Delivery', desc: 'Free shipping on orders over $100' },
               { icon: Shield, title: 'Secure Payment', desc: '100% secure payment gateway' },
               { icon: Headphones, title: '24/7 Support', desc: 'Round the clock customer service' },
             ].map((f, i) => (
-              <div key={i} className="rounded-card p-6 bg-white text-center hover:shadow-lg transition-shadow">
+              <div key={i} className="rounded-card p-6 bg-white text-center shadow-xs border border-slate-100 hover:shadow-md transition duration-300">
                 <div className="bg-primary/10 p-4 rounded-full mb-4 inline-block">
                   <f.icon className="text-primary" size={32} />
                 </div>
                 <h3 className="font-bold text-xl mb-2 text-slate-800">{f.title}</h3>
-                <p className="text-slate-600">{f.desc}</p>
+                <p className="text-slate-600 text-sm leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
@@ -141,9 +141,9 @@ export default function Home() {
       </section>
 
       {/* Section 2: Categories */}
-      <section className="py-16 bg-neutral">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-slate-800">Shop by Category</h2>
+          <h2 className="text-3xl font-extrabold text-center mb-12 text-slate-900 tracking-tight">Shop by Category</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { name: 'Smartwatches', img: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400' },
@@ -151,17 +151,17 @@ export default function Home() {
               { name: 'Laptops', img: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400' },
               { name: 'Smartphones', img: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400' },
             ].map((cat, i) => (
-              <Link key={i} href="/explore" className="rounded-card overflow-hidden group bg-white shadow-md hover:shadow-xl transition">
+              <Link key={i} href="/explore" className="rounded-card overflow-hidden group bg-white shadow-xs border border-slate-100 hover:shadow-lg transition duration-300">
                 <div className="relative h-40">
                   <Image
                     src={cat.img}
                     alt={cat.name}
                     fill
                     sizes="(max-width: 768px) 50vw, 25vw"
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <div className="p-4 text-center font-bold text-slate-800">{cat.name}</div>
+                <div className="p-4 text-center font-bold text-slate-800 group-hover:text-primary transition-colors">{cat.name}</div>
               </Link>
             ))}
           </div>
@@ -169,9 +169,9 @@ export default function Home() {
       </section>
 
       {/* Section 3: Trending Gadgets */}
-      <section className="py-16 bg-gray-100">
+      <section className="py-16 bg-slate-50/50 border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-slate-800">Trending Gadgets</h2>
+          <h2 className="text-3xl font-extrabold text-center mb-12 text-slate-900 tracking-tight">Trending Gadgets</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {loading ? (
               Array.from({ length: 4 }).map((_, i) => (
@@ -324,19 +324,19 @@ export default function Home() {
       </section>
 
       {/* Section 5: Testimonials */}
-      <section className="py-16 bg-gray-100">
+      <section className="py-16 bg-slate-50/50 border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-slate-800">What Our Customers Say</h2>
+          <h2 className="text-3xl font-extrabold text-center mb-12 text-slate-900 tracking-tight">What Our Customers Say</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { name: 'Sarah Johnson', role: 'Tech Enthusiast', text: 'Amazing quality and fast delivery. GadgetVerse is my go-to store for all electronics.' },
               { name: 'Michael Chen', role: 'Photographer', text: 'The customer service is outstanding. They helped me choose the perfect camera gear.' },
               { name: 'Emily Rodriguez', role: 'Student', text: 'Great prices and authentic products. Highly recommend to anyone looking for gadgets.' },
             ].map((t, i) => (
-              <div key={i} className="rounded-card p-6 bg-white shadow-md hover:shadow-lg transition-shadow">
-                <p className="text-slate-700 mb-4 italic">"{t.text}"</p>
+              <div key={i} className="rounded-card p-6 bg-white shadow-xs border border-slate-100 hover:shadow-md transition duration-300">
+                <p className="text-slate-600 mb-4 italic leading-relaxed">"{t.text}"</p>
                 <div className="font-bold text-primary">{t.name}</div>
-                <div className="text-sm text-slate-500">{t.role}</div>
+                <div className="text-sm text-slate-500 font-medium">{t.role}</div>
               </div>
             ))}
           </div>
@@ -344,20 +344,20 @@ export default function Home() {
       </section>
 
       {/* Section 6: Newsletter */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white border-t border-slate-100">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4 text-slate-800">Subscribe to Our Newsletter</h2>
-          <p className="mb-6 text-slate-600">Get the latest updates on new products and exclusive offers.</p>
+          <h2 className="text-3xl font-extrabold mb-4 text-slate-900 tracking-tight">Subscribe to Our Newsletter</h2>
+          <p className="mb-6 text-slate-500 font-medium">Get the latest updates on new products and exclusive offers.</p>
           <form onSubmit={handleSubscribe} className="flex gap-2 max-w-md mx-auto">
             <input
               type="email"
               required
               placeholder="Enter your email"
-              className="flex-1 px-4 py-2 rounded-lg text-slate-800 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-primary"
+              className="flex-1 px-4 py-2.5 rounded-lg text-slate-800 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
             />
             <button
               type="submit"
-              className="px-6 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary-800 transition"
+              className="px-6 py-2.5 bg-primary text-white rounded-lg font-semibold hover:bg-primary-600 transition shadow-md shadow-primary/20 cursor-pointer"
             >
               {subscribed ? '✓ Subscribed!' : 'Subscribe'}
             </button>
@@ -366,15 +366,15 @@ export default function Home() {
       </section>
 
       {/* Section 7: FAQ */}
-      <section className="py-16 bg-gray-100">
+      <section className="py-16 bg-slate-50/50 border-t border-slate-100">
         <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-slate-800">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-extrabold text-center mb-12 text-slate-900 tracking-tight">Frequently Asked Questions</h2>
           <div className="space-y-3">
             {faqs.map((faq, i) => (
               <div key={i} className="border border-slate-200 rounded-card overflow-hidden hover:border-primary/30 transition bg-white">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-slate-50 transition"
+                  className="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-slate-50 transition cursor-pointer"
                 >
                   <span className="font-semibold text-slate-800">{faq.title}</span>
                   <ChevronDown
