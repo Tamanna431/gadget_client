@@ -104,23 +104,23 @@ export default function ExplorePage() {
     <div className="max-w-7xl mx-auto px-4 py-12">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-4xl font-bold text-slate-800 mb-2">Explore Gadgets</h1>
-        <p className="text-slate-600">
+        <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight mb-2">Explore Gadgets</h1>
+        <p className="text-slate-500">
           Discover our collection of premium smart gadgets and electronics
         </p>
       </div>
 
       {/* Filters */}
-      <div className="bg-white border border-slate-200 p-6 rounded-card mb-8 shadow-sm">
+      <div className="bg-white border border-slate-100 p-6 rounded-card mb-8 shadow-sm">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <SlidersHorizontal size={20} className="text-primary" />
-            <h2 className="text-lg font-semibold text-slate-800">Filters</h2>
+            <h2 className="text-lg font-bold text-slate-800 tracking-tight">Filters</h2>
           </div>
           {hasActiveFilters && (
             <button
               onClick={clearFilters}
-              className="text-sm text-primary hover:text-primary-800 font-medium flex items-center gap-1"
+              className="text-sm text-primary hover:text-primary-600 font-semibold flex items-center gap-1 cursor-pointer"
             >
               <X size={14} />
               Clear All
@@ -139,7 +139,7 @@ export default function ExplorePage() {
             placeholder="Search gadgets by name..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+            className="w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
           />
         </div>
 
@@ -150,7 +150,7 @@ export default function ExplorePage() {
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition bg-white"
+              className="w-full px-3 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition bg-white text-slate-700 cursor-pointer"
             >
               {categories.map((c) => (
                 <option key={c} value={c}>
@@ -166,7 +166,7 @@ export default function ExplorePage() {
             <select
               value={sort}
               onChange={(e) => setSort(e.target.value)}
-              className="w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition bg-white"
+              className="w-full px-3 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition bg-white text-slate-700 cursor-pointer"
             >
               <option value="default">Default</option>
               <option value="price-asc">Price: Low to High</option>
@@ -186,7 +186,7 @@ export default function ExplorePage() {
                 value={minPrice}
                 onChange={(e) => setMinPrice(Number(e.target.value))}
                 placeholder="Min"
-                className="w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+                className="w-full px-3 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
               />
               <span className="text-slate-400">-</span>
               <input
@@ -196,10 +196,10 @@ export default function ExplorePage() {
                 value={maxPrice}
                 onChange={(e) => setMaxPrice(Number(e.target.value))}
                 placeholder="Max"
-                className="w-full px-3 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+                className="w-full px-3 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
               />
             </div>
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-slate-500 font-medium">
               ${minPrice} - ${maxPrice}
             </p>
           </div>

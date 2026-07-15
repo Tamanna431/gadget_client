@@ -61,10 +61,10 @@ export default function Home() {
   ];
 
   const categoryData = [
-    { name: 'Smartwatch', value: 30, color: '#1E3A8A' },
+    { name: 'Smartwatch', value: 30, color: '#6366F1' },
     { name: 'Headphones', value: 25, color: '#10B981' },
-    { name: 'Laptop', value: 20, color: '#3B82F6' },
-    { name: 'Smartphone', value: 25, color: '#059669' },
+    { name: 'Laptop', value: 20, color: '#8B5CF6' },
+    { name: 'Smartphone', value: 25, color: '#F59E0B' },
   ];
 
   const faqs = [
@@ -77,25 +77,29 @@ export default function Home() {
   return (
     <div>
       {/* HERO - 65vh */}
-      <section className="h-[65vh] relative flex items-center bg-gradient-to-r from-primary-400 to-primary-800">
-        <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
-          <div className="text-blue-800 space-y-6">
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-              Discover Premium <span className="text-secondary">Smart Gadgets</span>
+      <section className="h-[65vh] relative flex items-center bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-950 text-white overflow-hidden">
+        {/* Subtle decorative background glow */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center relative z-10">
+          <div className="space-y-6">
+            <h1 className="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight text-white">
+              Discover Premium <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-400">Smart Gadgets</span>
             </h1>
-            <p className="text-lg text-blue-600 font-extrabold ">
-              Explore the latest technology and elevate <br /> your lifestyle with our curated collection of premium electronics.
+            <p className="text-lg text-slate-300 font-medium max-w-lg leading-relaxed">
+              Explore the latest technology and elevate your lifestyle with our curated collection of premium electronics.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-4 pt-2">
               <Link
                 href="/explore"
-                className="px-6 py-3 bg-secondary text-black border-2 rounded-lg font-medium hover:bg-blue-600 transition flex items-center gap-2"
+                className="px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary-600 transition flex items-center gap-2 shadow-lg shadow-primary/20"
               >
                 Shop Now <ArrowRight size={18} />
               </Link>
               <Link
                 href="/about"
-                className="px-6 py-3 border-2 border-white text-white rounded-lg font-medium hover:bg-white hover:text-primary transition"
+                className="px-6 py-3 border border-white/20 text-white rounded-lg font-semibold hover:bg-white/10 transition"
               >
                 Learn More
               </Link>
@@ -107,7 +111,7 @@ export default function Home() {
               alt="Hero"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="rounded-card shadow-2xl object-cover"
+              className="rounded-card shadow-2xl object-cover border border-white/10"
               priority
             />
           </div>
@@ -232,7 +236,7 @@ export default function Home() {
                   <Line
                     type="monotone"
                     dataKey="sales"
-                    stroke="#1E3A8A"
+                    stroke="#6366F1"
                     strokeWidth={3}
                     name="Sales ($)"
                     activeDot={{ r: 8 }}
@@ -247,7 +251,7 @@ export default function Home() {
                 </LineChart>
               </ResponsiveContainer>
             </div>
-
+ 
             {/* Pie Chart - Category Distribution */}
             <div className="bg-gray-50 rounded-card p-6 shadow-sm">
               <h3 className="text-xl font-bold mb-6 text-center text-slate-800">Sales by Category</h3>
@@ -279,7 +283,7 @@ export default function Home() {
               </ResponsiveContainer>
             </div>
           </div>
-
+ 
           {/* Bar Chart - Full Width */}
           <div className="bg-gray-50 rounded-card p-6 shadow-sm mt-8">
             <h3 className="text-xl font-bold mb-6 text-center text-slate-800">Monthly Revenue Analysis</h3>
@@ -303,7 +307,7 @@ export default function Home() {
                 <Legend />
                 <Bar
                   dataKey="sales"
-                  fill="#1E3A8A"
+                  fill="#6366F1"
                   radius={[8, 8, 0, 0]}
                   name="Sales ($)"
                 />

@@ -32,38 +32,40 @@ export default function Navbar() {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <nav className="sticky top-0 z-50 bg-blue-100 border-b border-slate-200 shadow-sm">
+    <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/60 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <Cpu className="text-primary" size={28} />
-            <span className="font-bold text-xl text-primary">GadgetVerse</span>
+          <Link href="/" className="flex items-center gap-2 group">
+            <Cpu className="text-primary group-hover:rotate-12 transition-transform" size={28} />
+            <span className="font-bold text-xl text-slate-800 tracking-tight">
+              Gadget<span className="text-primary font-extrabold">Verse</span>
+            </span>
           </Link>
-
+ 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-6">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors ${
+                className={`text-sm font-medium transition-all py-1 ${
                   isActive(link.href)
                     ? 'text-primary border-b-2 border-primary'
-                    : 'text-slate-800 hover:text-primary'
+                    : 'text-slate-600 hover:text-primary'
                 }`}
               >
                 {link.label}
               </Link>
             ))}
           </div>
-
+ 
           {/* Auth Buttons (Desktop) - ALWAYS VISIBLE */}
           <div className="hidden lg:flex items-center gap-3">
             {user ? (
               <button
                 onClick={logout}
-                className="px-4 py-2 text-sm font-medium text-black bg-primary rounded-lg hover:bg-blue-800 transition flex items-center gap-2"
+                className="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-lg hover:bg-red-600 transition shadow-sm flex items-center gap-2 cursor-pointer"
               >
                 <LogIn size={16} />
                 Logout
@@ -72,14 +74,14 @@ export default function Navbar() {
               <>
                 <Link
                   href="/login"
-                  className="px-4 py-2 text-sm font-medium text-white border-2 border-primary rounded-lg hover:bg-blue-800 hover:text-blue-400 bg-blue-400 transition flex items-center gap-2"
+                  className="px-4 py-2 text-sm font-medium text-primary border border-primary/20 rounded-lg hover:bg-primary/5 transition flex items-center gap-2"
                 >
                   <LogIn size={16} />
                   Login
                 </Link>
                 <Link
                   href="/register"
-                  className="px-4 py-2 text-sm font-medium text-white bg-blue-400 rounded-lg hover:bg-blue-800 transition flex items-center gap-2 border-2"
+                  className="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg hover:bg-primary-600 transition flex items-center gap-2 shadow-md shadow-primary/20"
                 >
                   <UserPlus size={16} />
                   Register
@@ -87,7 +89,7 @@ export default function Navbar() {
               </>
             )}
           </div>
-
+ 
           {/* Mobile Menu Button */}
           <button
             className="lg:hidden text-slate-600"
@@ -97,10 +99,10 @@ export default function Navbar() {
           </button>
         </div>
       </div>
-
+ 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden bg-white border-t border-slate-200">
+        <div className="lg:hidden bg-white/95 backdrop-blur-md border-t border-slate-200">
           <div className="px-4 py-4 space-y-3">
             {links.map((link) => (
               <Link
@@ -125,7 +127,7 @@ export default function Navbar() {
                     logout();
                     setIsOpen(false);
                   }}
-                  className="w-full px-4 py-2 text-center text-sm font-medium text-black bg-primary rounded-lg flex items-center justify-center gap-2"
+                  className="w-full px-4 py-2 text-center text-sm font-medium text-white bg-red-500 rounded-lg flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <LogIn size={16} />
                   Logout
@@ -135,7 +137,7 @@ export default function Navbar() {
                   <Link
                     href="/login"
                     onClick={() => setIsOpen(false)}
-                    className="block w-full px-4 py-2 text-center text-sm font-medium text-primary border-2 border-primary rounded-lg hover:bg-primary hover:text-white transition flex items-center justify-center gap-2"
+                    className="block w-full px-4 py-2 text-center text-sm font-medium text-primary border border-primary/20 rounded-lg hover:bg-primary/5 transition flex items-center justify-center gap-2"
                   >
                     <LogIn size={16} />
                     Login
@@ -143,7 +145,7 @@ export default function Navbar() {
                   <Link
                     href="/register"
                     onClick={() => setIsOpen(false)}
-                    className="block w-full px-4 py-2 text-center text-sm font-medium text-white bg-primary rounded-lg hover:bg-primary-800 transition flex items-center justify-center gap-2"
+                    className="block w-full px-4 py-2 text-center text-sm font-medium text-white bg-primary rounded-lg hover:bg-primary-600 transition flex items-center justify-center gap-2"
                   >
                     <UserPlus size={16} />
                     Register

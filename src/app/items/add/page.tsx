@@ -51,46 +51,46 @@ export default function AddItemPage() {
         </div>
       </div>
 
-      <div className="bg-white rounded-card shadow-md border border-slate-200 p-6">
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <div className="bg-white rounded-card shadow-xl border border-slate-100 p-8">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           {/* Title */}
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-700">
+            <label className="text-sm font-semibold text-slate-800">
               Title <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
               placeholder="e.g., Apple Watch Series 9"
               {...register('title', { required: 'Title is required' })}
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+              className="w-full px-3 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
             />
             {errors.title && <p className="text-red-500 text-sm">{String(errors.title.message)}</p>}
           </div>
 
           {/* Short Description */}
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-700">
+            <label className="text-sm font-semibold text-slate-800">
               Short Description <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
               placeholder="Brief one-line description"
               {...register('shortDesc', { required: 'Short description is required' })}
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+              className="w-full px-3 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
             />
             {errors.shortDesc && <p className="text-red-500 text-sm">{String(errors.shortDesc.message)}</p>}
           </div>
 
           {/* Full Description */}
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-700">
+            <label className="text-sm font-semibold text-slate-800">
               Full Description <span className="text-red-500">*</span>
             </label>
             <textarea
               rows={4}
               placeholder="Detailed description of the gadget..."
               {...register('fullDesc', { required: 'Full description is required' })}
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition resize-none"
+              className="w-full px-3 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition resize-none"
             />
             {errors.fullDesc && <p className="text-red-500 text-sm">{String(errors.fullDesc.message)}</p>}
           </div>
@@ -98,7 +98,7 @@ export default function AddItemPage() {
           {/* Price & Stock */}
           <div className="grid md:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-700">
+              <label className="text-sm font-semibold text-slate-800">
                 Price ($) <span className="text-red-500">*</span>
               </label>
               <input
@@ -110,13 +110,13 @@ export default function AddItemPage() {
                   required: 'Price is required',
                   min: { value: 0, message: 'Price cannot be negative' }
                 })}
-                className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+                className="w-full px-3 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
               />
               {errors.price && <p className="text-red-500 text-sm">{String(errors.price.message)}</p>}
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-700">
+              <label className="text-sm font-semibold text-slate-800">
                 Stock <span className="text-red-500">*</span>
               </label>
               <input
@@ -127,7 +127,7 @@ export default function AddItemPage() {
                   required: 'Stock is required',
                   min: { value: 0, message: 'Stock cannot be negative' }
                 })}
-                className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+                className="w-full px-3 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
               />
               {errors.stock && <p className="text-red-500 text-sm">{String(errors.stock.message)}</p>}
             </div>
@@ -135,12 +135,12 @@ export default function AddItemPage() {
 
           {/* Category */}
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-700">
+            <label className="text-sm font-semibold text-slate-800">
               Category <span className="text-red-500">*</span>
             </label>
             <select
               {...register('category', { required: 'Category is required' })}
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition bg-white"
+              className="w-full px-3 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition bg-white text-slate-700 cursor-pointer"
             >
               <option value="">Select a category</option>
               {categories.map((c) => (
@@ -152,41 +152,41 @@ export default function AddItemPage() {
 
           {/* Brand */}
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-700">
+            <label className="text-sm font-semibold text-slate-800">
               Brand <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
               placeholder="e.g., Apple, Sony, Samsung"
               {...register('brand', { required: 'Brand is required' })}
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+              className="w-full px-3 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
             />
             {errors.brand && <p className="text-red-500 text-sm">{String(errors.brand.message)}</p>}
           </div>
 
           {/* Image URL */}
           <div className="space-y-2">
-            <label className="text-sm font-medium text-slate-700">
+            <label className="text-sm font-semibold text-slate-800">
               Image URL <span className="text-red-500">*</span>
             </label>
             <input
               type="url"
               placeholder="https://example.com/image.jpg"
               {...register('image', { required: 'Image URL is required' })}
-              className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
+              className="w-full px-3 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition"
             />
             {errors.image && <p className="text-red-500 text-sm">{String(errors.image.message)}</p>}
           </div>
 
           {/* Messages */}
           {error && (
-            <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
+            <div className="p-3 bg-red-50 border border-red-100 rounded-lg text-red-600 text-sm font-medium">
               {error}
             </div>
           )}
 
           {success && (
-            <div className="p-3 bg-green-50 border border-green-200 rounded-lg text-green-600 text-sm">
+            <div className="p-3 bg-green-50 border border-green-100 rounded-lg text-green-600 text-sm font-medium">
               ✓ Gadget added successfully!
             </div>
           )}
@@ -195,12 +195,11 @@ export default function AddItemPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-3 bg-primary text-black rounded-lg font-medium hover:bg-blue-200 transition flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-3.5 bg-primary text-white rounded-lg font-bold hover:bg-primary-600 transition flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-md shadow-primary/20 cursor-pointer"
           >
             {isSubmitting ? (
               <>
-                <div className="w-5 h-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin bg-blue-400
-                text-black" />
+                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
                 Adding...
               </>
             ) : (
