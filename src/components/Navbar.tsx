@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '../context/AuthContext';
@@ -8,8 +8,13 @@ import { Cpu, Menu, X, LogIn, UserPlus } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { user, logout } = useAuth();
   const pathname = usePathname();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const publicLinks = [
     { label: 'Home', href: '/' },
@@ -27,9 +32,14 @@ export default function Navbar() {
     { label: 'Contact', href: '/contact' },
   ];
 
-  const links = user ? privateLinks : publicLinks;
+  // Prevent hydration mismatch by using publicLinks until client-side hydration completes
+  const links = mounted && user ? privateLinks : publicLinks;
 
-  const isActive = (path: string) => pathname === path;
+  // Active status only applies on client after mounting to avoid SSR mismatch
+  const isActive = (path: string) => {
+    if (!mounted) return false;
+    return pathname === path;
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/60 shadow-sm">
@@ -51,7 +61,7 @@ export default function Navbar() {
                 href={link.href}
                 className={`text-sm font-medium transition-all py-1 ${
                   isActive(link.href)
-                    ? 'text-primary border-b-2 border-primary'
+                    ? 'text-primary border-b-2 border-primary font-semibold'
                     : 'text-slate-600 hover:text-primary'
                 }`}
               >
@@ -60,9 +70,9 @@ export default function Navbar() {
             ))}
           </div>
  
-          {/* Auth Buttons (Desktop) - ALWAYS VISIBLE */}
+          {/* Auth Buttons (Desktop) */}
           <div className="hidden lg:flex items-center gap-3">
-            {user ? (
+            {mounted && user ? (
               <button
                 onClick={logout}
                 className="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded-lg hover:bg-red-600 transition shadow-sm flex items-center gap-2 cursor-pointer"
@@ -111,7 +121,7 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className={`block px-3 py-2 rounded-md text-base font-medium ${
                   isActive(link.href)
-                    ? 'bg-primary/10 text-primary'
+                    ? 'bg-primary/10 text-primary font-semibold'
                     : 'text-slate-600 hover:bg-slate-50'
                 }`}
               >
@@ -121,7 +131,7 @@ export default function Navbar() {
             
             {/* Mobile Auth Buttons */}
             <div className="pt-3 border-t border-slate-200 space-y-2">
-              {user ? (
+              {mounted && user ? (
                 <button
                   onClick={() => {
                     logout();
